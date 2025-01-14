@@ -1,14 +1,19 @@
 'use client'
 
-import Loader from '@/components/ui/Loader'
+import { useState } from 'react'
+import Loader from '../src/components/animation/Loader'
+import HeroeSection from '@/components/ui/heroe-section'
 
 export default function Page() {
+  const [loading, setLoading] = useState(true)
+
+  const handleLoaderFinished = () => {
+    setTimeout(() => setLoading(false), 500)
+  }
+
   return (
-    <>
-      <div className='bg-[#F8EDE1] min-h-screen flex flex-col items-center justify-center'>
-        <Loader />
-      </div>
-      <div className='min-h-screen bg-blue-50'></div>
-    </>
+    <div className='bg-[#F8EDE1]'>
+      {loading ? <Loader onFinished={handleLoaderFinished} /> : <HeroeSection />}
+    </div>
   )
 }

@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
-export default function MushroomCanvas() {
+export default function Mushroom() {
   const canvasRef = useRef(null)
   const containerRef = useRef(null)
 
@@ -62,15 +62,12 @@ export default function MushroomCanvas() {
       ctx.restore()
     }
 
-    gsap.fromTo(
-      progress,
-      { value: 0 },
-      {
-        value: 1,
-        duration: 0,
-        onUpdate: drawMushroom,
-      },
-    )
+    gsap.to(progress, {
+      value: 1,
+      duration: 0.8,
+      onUpdate: drawMushroom,
+      ease: 'power2.out',
+    })
 
     gsap.to(containerRef.current, {
       rotateY: 360,
