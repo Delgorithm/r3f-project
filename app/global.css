@@ -18,6 +18,19 @@
   }
 }
 
+canvas {
+  display: block;
+  height: 25rem;
+}
+
+.r3f {
+  touch-action: none;
+}
+
+img {
+  pointer-events: none;
+}
+
 @font-face {
   font-family: 'Baskervville';
   src: url('/fonts/baskervville/Baskervville-Regular.ttf') format('truetype');
