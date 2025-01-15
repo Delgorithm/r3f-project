@@ -25,6 +25,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "resolveJsonModule": true,
+    "types": ["@react-three/fiber"],
     "plugins": [
       {
         "name": "next"
@@ -35,7 +36,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "custom.d.ts"
   ],
   "exclude": [
     "node_modules"
