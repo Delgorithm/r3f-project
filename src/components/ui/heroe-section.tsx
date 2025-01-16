@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Navbar from './navbar'
 
 export default function HeroeSection() {
   const cloud1 = '/img/clouds01.svg'
@@ -35,14 +34,13 @@ export default function HeroeSection() {
   }
 
   return (
-    <section className='relative bg-[#F8EDE1] h-screen w-full flex flex-col justify-between'>
-      <Navbar />
-      <div className='relative'>
+    <section className='relative bg-[#F8EDE1] w-full h-screen flex flex-col justify-center'>
+      <div>
         <motion.h1
           initial='hidden'
           animate='visible'
           variants={listItemVarientsY}
-          className='text-center font-light text-[54px]'
+          className='text-center text-[#FA4A14] font-light text-[54px] tracking-tighter'
         >
           Hiro Technologies
         </motion.h1>
@@ -57,25 +55,15 @@ export default function HeroeSection() {
           <motion.li variants={listItemVarientsY}>HIRO Diaper Bundle</motion.li>
         </motion.ul>
       </div>
-      <motion.div initial='hidden' animate='visible' variants={listVariants}>
-        <motion.p
-          variants={listItemVarientsX}
-          className='absolute top-[30%] left-64 uppercase font-extralight z-10'
-        >
-          Authenticity
-        </motion.p>
-        <motion.p
-          variants={listItemVarientsX2}
-          className='absolute top-[23%] right-52 uppercase font-extralight z-10'
-        >
-          Recycle
-        </motion.p>
-        <motion.p
-          variants={listItemVarientsX2}
-          className='absolute top-[70%] right-96 uppercase font-extralight z-10'
-        >
-          Vision
-        </motion.p>
+      <motion.div
+        initial='hidden'
+        animate='visible'
+        variants={listVariants}
+        className='absolute bottom-2 flex items-center justify-between w-full px-4 text-[12px] uppercase font-extralight z-10 tracking-tighter'
+      >
+        <motion.p variants={listItemVarientsX}>Authenticity</motion.p>
+        <motion.p variants={listItemVarientsX2}>Recycle</motion.p>
+        <motion.p variants={listItemVarientsX2}>Vision</motion.p>
       </motion.div>
       <div>
         <Image

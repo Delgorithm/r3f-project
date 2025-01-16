@@ -1,7 +1,26 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      setIsScrolled(scrollY > 500)
+      console.log('500')
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   const listItemVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
@@ -18,11 +37,11 @@ export default function Navbar() {
   }
 
   return (
-    <div className='relative'>
-      <nav className='flex items-center justify-between bg-[#F8EDE1] px-3 py-2'>
+    <div className='fixed top-0 z-10'>
+      <nav className='flex items-center justify-between px-3 py-2'>
         <Link href='/'>
           <motion.ul
-            className='list-none flex gap-4 absolute top-0 left-16 font-baskervville text-[#FA4A14]'
+            className='list-none flex gap-0 fixed top-0 left-16 font-baskervville text-[#FA4A14]'
             initial='hidden'
             animate='visible'
             variants={listVariants}
@@ -42,7 +61,7 @@ export default function Navbar() {
           </motion.ul>
         </Link>
         <motion.ul
-          className='flex items-center gap-1 text-[12px] font-light'
+          className='flex items-center gap-1 text-[12px] font-light fixed right-4 top-2'
           initial='hidden'
           animate='visible'
           variants={listVariants}

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Loader from '../src/components/animation/Loader'
-import HeroeSection from '@/components/ui/heroe-section'
+import MainPage from '@/components/ui/main-page'
 
 export default function Page() {
   const [loading, setLoading] = useState(true)
@@ -13,7 +13,7 @@ export default function Page() {
 
   return (
     <div className='bg-[#F8EDE1]'>
-      {loading ? <Loader onFinished={handleLoaderFinished} /> : <HeroeSection />}
+      {loading ? <Loader onFinished={handleLoaderFinished} /> : <MainPage />}
     </div>
   )
 }
