@@ -1,20 +1,14 @@
-import * as THREE from 'three'
+import { ThreeElements } from '@react-three/fiber'
 
-declare module '@react-three/fiber' {
-  interface ThreeElements {
-    primitive: THREE.Object3D
+declare global {
+  namespace React {
+    namespace JSX {
+      interface IntrinsicElements extends ThreeElements {}
+    }
   }
 }
 
 declare module '*.glb' {
   const content: GLTF
   export default content
-}
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      primitive: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
-    }
-  }
 }

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import CanvasMushroom from '../canvas/Canvas-mushroom'
 import Link from 'next/link'
+import ModelLoader from './ModelLoader'
 
 export default function Presentation() {
   const imgTeam = '/img/team01.webp'
@@ -96,7 +97,9 @@ export default function Presentation() {
         <div className=' w-1/3'></div>
       </div>
 
-      <div className='bg-[#FA4A14] w-full h-screen'></div>
+      <div className=' w-full h-screen'>
+        <ModelLoader />
+      </div>
     </section>
   )
 }
