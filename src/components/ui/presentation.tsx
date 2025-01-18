@@ -2,6 +2,7 @@ import Image from 'next/image'
 import CanvasMushroom from '../canvas/Canvas-mushroom'
 import Link from 'next/link'
 import ModelLoader from './ModelLoader'
+import { Canvas } from '@react-three/fiber'
 
 export default function Presentation() {
   const imgTeam = '/img/team01.webp'
@@ -98,7 +99,17 @@ export default function Presentation() {
       </div>
 
       <div className=' w-full h-screen'>
-        <ModelLoader />
+        <Canvas
+          shadows
+          camera={{
+            fov: 45,
+            near: 0.1,
+            far: 200,
+            position: [0, 0, 0],
+          }}
+        >
+          <ModelLoader />
+        </Canvas>
       </div>
     </section>
   )

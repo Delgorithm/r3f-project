@@ -1,10 +1,14 @@
 import ProductFullContainer from '@/model/Product-full-container'
+import { OrbitControls } from '@react-three/drei'
+import { Suspense } from 'react'
 
 export default function ModelLoader() {
-  console.log(ProductFullContainer)
+  console.log('Model : ', ProductFullContainer)
   return (
     <>
-      <ProductFullContainer scale={2} />
+      <Suspense fallback={<p>Chargement...</p>}>
+        <ProductFullContainer scale={2} />
+      </Suspense>
     </>
   )
 }
